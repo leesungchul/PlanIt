@@ -1,0 +1,2 @@
+module TimeSuggestionsHelper
+end

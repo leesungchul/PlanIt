@@ -1,0 +1,52 @@
+
+<div class="modal fade" id='sign-up-modal'>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Sign Up</h4>
+      </div>
+      <div class="modal-body">
+        <form action="/users" method="post">
+          <input
+             name="_method"
+             type="hidden"
+             value="">
+          <input
+             name="authenticity_token"
+             type="hidden"
+             value="<%= form_authenticity_token %>">
+
+          <label for="user_user_name">Username</label>
+          <input
+             id="user_user_name"
+             name="user[user_name]"
+             type="text">
+          <br>
+
+          <label for="user_password">Password</label>
+          <input
+             id="user_password"
+             name="user[password]"
+             type="password">
+          <br>
+
+          <label for="user_email">Email</label>
+          <input
+            id="user_email"
+            name="user[email]"
+            type="text">
+          <br>
+
+          <input type="submit" value="SUBMIT FORM" class="btn btn-primary">
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+
