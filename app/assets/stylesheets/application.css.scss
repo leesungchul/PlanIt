@@ -15,3 +15,60 @@
 
 
 @import "bootstrap";
+html, body {
+  padding-top: 30px;
+  height: 96%;
+}
+
+.nav-tabs {
+  width: 145%;
+}
+
+.thumbnail {
+  text-align: center;
+  margin: 0 auto;
+}
+
+body {
+  margin-bottom: 5%;
+}
+
+.container2 {
+  width: 96%;
+}
+
+.container1 {
+  display: inline;
+}
+
+.container0 {
+  margin-left: 10%;
+  margin-right: 10%;
+  height: 96%;
+}
+
+.screen {
+  height: 96%;
+}
+
+.sideCol {
+  height: 96%;
+}
+
+.centerCol {
+  height: 96%;
+}
+
+.screen .sideCol .scrollable1 {
+  overflow: hidden;;
+  width: 100%;
+  height: 96%;
+}
+
+.screen .centerCol .scrollable2{
+  overflow: hidden;
+  width: 100%;
+  height: 96%;
+}
+
+

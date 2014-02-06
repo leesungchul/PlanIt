@@ -19,6 +19,7 @@
 //= require jquery.ui.draggable
 //= require fullcalendar
 //= require jquery.simplemodal.1.4.4.min
+//= require gravtastic
 //
 //= require plan_it
 //

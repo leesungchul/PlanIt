@@ -2,13 +2,16 @@
 <html>
 <head>
   <title>PlanIt</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag "application", :media => "all" %>
+  <%= stylesheet_link_tag "//netdna.bootstrapcdn.com/bootswatch/3.0.3/cyborg/bootstrap.min.css", :media => "all" %>
+
   <%= javascript_include_tag "application" %>
+  <%= filepicker_js_include_tag %>
   <%= csrf_meta_tags %>
 </head>
 <body>
   <%= render "layouts/form" %>
-  <%= render "layouts/navbar "%>
+  <%= render "layouts/navbar" %>
   <%= yield %>
 
 </body>

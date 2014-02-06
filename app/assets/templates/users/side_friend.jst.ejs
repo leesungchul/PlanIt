@@ -1,0 +1,10 @@
+<div class="side-friend-box" data-cid='<%= friend.escape("id") %>'>
+  <div class="row">
+    <div class="col-sm-4">
+      <img src='<%= Gravtastic(friend.get('email'), {default: 'identicon', size: 50}) %>'>
+    </div>
+    <div class="col-sm-8">
+      <a class="list-group-item-heading" href='#/users/<%= friend.escape("id") %>'><h3><%= friend.escape("user_name") %></h3></a>
+    </div>
+  </div>
+</div>

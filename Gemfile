@@ -57,6 +57,10 @@ gem 'fullcalendar-rails'
 
 gem 'gravtastic'
 
+gem 'kaminari'
+
+gem 'filepicker-rails'
+
 
 
 

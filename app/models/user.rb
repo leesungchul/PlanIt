@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
     :rating => 'R',
     :default => 'identicon'
 
-  attr_accessible :user_name, :password, :email, :session_token
+  attr_accessible :user_name, :password, :email, :session_token, :grav_url
   attr_reader :password
 
   validates :password_digest, :presence => { :message => "Password can't be blank" }
@@ -60,7 +60,7 @@ class User < ActiveRecord::Base
   end
 
   def all_friends
-    current_user.friends + current_user.inverse_friends
+    self.friends + self.inverse_friends
   end
 
   private
