@@ -34,4 +34,14 @@ PlanIt::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  config.paperclip_defaults = {
+        :storage => :s3,
+        :s3_credentials => {
+          :bucket => "planitpics",
+          :access_key_id => ENV["AWS_KEY"],
+          :secret_access_key => ENV["AWS_SECRET"],
+          :s3_host_name => 's3-us-west-1.amazonaws.com' # or whatever your region host name is
+    }
+  }
 end

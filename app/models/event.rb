@@ -16,5 +16,9 @@ class Event < ActiveRecord::Base
 
   has_many :members, :through => :event_circles, :source => :user
 
+  has_many :event_pics
+
+  has_many :event_pic_urls, :through => :event_pics, :source => :filepicker_url
+
   accepts_nested_attributes_for :event_places, :event_times, :event_circles
 end

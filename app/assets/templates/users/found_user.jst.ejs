@@ -1,15 +1,16 @@
 <div class="found-friend-box" data-cid='<%= user.escape("id") %>'>
-  <div class="row">
-    <div class="col-sm-4">
-      <img src='<%= Gravtastic(user.get('email'), {default: 'identicon', size: 50}) %>'>
-    </div>
-    <div class="col-sm-8">
-      <a class="list-group-item-heading" href='#/users/<%= user.escape("id") %>'><h3><%= user.escape("user_name") %></h3></a>
-      <% if (friends.get(user.get("id"))) { %>
-        <button type="button" class="btn btn-danger" id="delete-friend">Remove Friend</button>
-      <% } else { %>
-        <button type="button" class="btn btn-primary" id="add-friend">Add to Friends</button>
-      <% } %>
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src='<%= Gravtastic(user.get('email'), {default: 'identicon', size: 100}) %>'>
+      <div class="caption\">
+        <a class="list-group-item-heading" href='#/users/<%= user.escape("id") %>'><h3><%= user.escape("user_name") %></h3></a>
+        <% if (friends.get(user.get("id"))) { %>
+          <button type="button" class="btn btn-danger" id="delete-friend">Remove Friend</button>
+        <% } else { %>
+          <button type="button" class="btn btn-primary" id="add-friend">Add to Friends</button>
+        <% } %>
+      </div>
     </div>
   </div>
 </div>
+

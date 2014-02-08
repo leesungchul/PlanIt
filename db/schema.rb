@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140204041813) do
+ActiveRecord::Schema.define(:version => 20140206053224) do
 
   create_table "event_circles", :force => true do |t|
     t.integer  "user_id",    :null => false
@@ -21,6 +21,16 @@ ActiveRecord::Schema.define(:version => 20140204041813) do
   end
 
   add_index "event_circles", ["user_id", "event_id"], :name => "index_event_circles_on_user_id_and_event_id", :unique => true
+
+  create_table "event_pics", :force => true do |t|
+    t.integer  "event_id"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
 
   create_table "event_places", :force => true do |t|
     t.integer  "event_id",                         :null => false
@@ -69,8 +79,25 @@ ActiveRecord::Schema.define(:version => 20140204041813) do
 
   add_index "friendships", ["user_id", "friend_id"], :name => "index_friendships_on_user_id_and_friend_id", :unique => true
 
+  create_table "place_pics", :force => true do |t|
+    t.integer  "place_id"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
+
   create_table "places", :force => true do |t|
     t.string   "place_name"
+    t.string   "address"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.string   "country"
+    t.string   "phone"
+    t.string   "url"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -86,6 +113,7 @@ ActiveRecord::Schema.define(:version => 20140204041813) do
     t.string   "password_digest", :null => false
     t.string   "session_token"
     t.string   "email",           :null => false
+    t.string   "grav_url"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end

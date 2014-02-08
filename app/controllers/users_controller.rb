@@ -29,11 +29,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    if params.include?(:id)
-      @user = User.find(params[:id])
-    else
-      redirect_to user_url(current_user)
-    end
+    @user = User.find(params[:id])
+    render :json => @user
   end
 
   def current_user_show

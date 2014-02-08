@@ -1,7 +1,7 @@
 <h1>USERNAME: <%= user.escape("user_name") %></h1>
 
 <img src='<%= Gravtastic(user.get('email'), {default: 'identicon', size: 200}) %>'>
-
+<br/>
 E-Mail: <%= user.escape("email") %>
 <br/>
 <% if (friends.get(user.get("id"))) { %>

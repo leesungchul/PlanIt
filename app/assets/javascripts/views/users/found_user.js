@@ -1,7 +1,5 @@
 PlanIt.Views.FoundUser = Backbone.View.extend({
 
-  className: 'list-group-item',
-
   template: JST['users/found_user'],
 
   events: {

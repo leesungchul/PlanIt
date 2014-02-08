@@ -14,11 +14,8 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if current_user.nil? %>
-
           <li><a href="" data-toggle='modal' data-target='#sign-up-modal'>Sign Up</a></li>
-
         <% else %>
-
           <li class="dropdown" id="signed-in-menu">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#signed-in-menu">
                 <%= image_tag current_user.gravatar_url(:default => 'identicon', :size => 30, :secure => true) %>    <%= current_user.user_name %><b class="caret"></b>
@@ -26,11 +23,10 @@
             <ul class="dropdown-menu">
               <li><%= link_to "Sign Out", session_url, :method => :delete %></li>
             </ul>
-
         <% end %>
       </ul>
       <% if current_user.nil? %>
-        <form action="/session" method="POST" class=" nav navbar-form navbar-right">
+        <form action="/session" method="POST" class="nav navbar-form navbar-right">
           <input class="span2" type="text" name="user[user_name]" placeholder="Username">
           <input class="span2" type="password" name="user[password]" placeholder="Password">
           <input type="submit" value="Sign in" class="btn btn-primary">

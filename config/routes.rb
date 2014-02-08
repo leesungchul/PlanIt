@@ -5,7 +5,8 @@ PlanIt::Application.routes.draw do
   resource :session, :only => [:create, :destroy, :new]
 
   namespace :api, :defaults => { :format => :json } do
-
+    resources :event_pics, :only => [:create, :destroy, :index]
+    resources :place_pics, :only => [:create, :destroy, :index]
     resources :events, :only => [:create, :update, :destroy, :show]
     resources :event_circles, :only => [:create, :destroy]
     resources :event_places, :only => [:create, :destroy]

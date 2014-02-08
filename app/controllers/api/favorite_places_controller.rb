@@ -1,6 +1,8 @@
 class Api::FavoritePlacesController < ApplicationController
   def create
-    @favorite_place = FavoritePlace.new(params[:favorite_place])
+    @user_id = current_user.id
+    @place_id = params[:favorite_place][:place_id]
+    @favorite_place = FavoritePlace.new({:user_id => @user_id, :place_id => @place_id})
     if @favorite_place.save
       render :json => @favorite_place
     else

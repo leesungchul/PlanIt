@@ -7,6 +7,7 @@ PlanIt.Routers.Users = Backbone.Router.extend({
   routes: {
     "": "root",
     "favorite_places": "favPlacesIndex",
+    "favorite_places/new": "addFavPlace",
     "favorite_places/:id": "favPlaceShow",
     "users/index": "usersIndex",
     "users/:id": "userShow",
@@ -26,8 +27,16 @@ PlanIt.Routers.Users = Backbone.Router.extend({
     this._swapSideView(favPlacesView);
   },
 
-  favPlaceShow: function() {
+  addFavPlace: function() {
+    var newFavPlace = new PlanIt.Views.NewFavPlace({
+      collection: PlanIt.favorites
+    });
+    this._swapMainView(newFavPlace);
+  },
+
+  favPlaceShow: function(id) {
     var favPlaceView = new PlanIt.Views.FavPlaceShow({
+      model: PlanIt.favorites.get(id),
       collection: PlanIt.favorites
     });
     this._swapMainView(favPlaceView);
@@ -73,7 +82,7 @@ PlanIt.Routers.Users = Backbone.Router.extend({
       user.collection = PlanIt.users;
       user.fetch({
         success: function() {
-          that.users.add(user);
+          PlanIt.users.add(user);
           callback(user);
         }
       });

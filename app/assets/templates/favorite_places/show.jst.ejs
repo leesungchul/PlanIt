@@ -1,0 +1,30 @@
+<h1><%= place.escape("place_name") %></h1>
+<ul>
+  <% if (place.escape("url")) { %>
+    <li><p>URL: <a href="http://www.<%= place.escape("url") %>">link</a></p></li>
+  <% } %>
+  <% if (place.escape("phone")) { %>
+    <li><p>PHONE: <%= place.escape("phone") %></p></li>
+  <% } %>
+  <li><p>LOCATION:</p></li>
+  <% if (place.escape("address")) { %>
+      <li><p>Street: <%= place.escape("address") %></p></li>
+  <% } %>
+  <% if (place.escape("city")) { %>
+    <li><p>City: <%= place.escape("city") %></p></li>
+  <% } %>
+  <% if (place.escape("state")) { %>
+    <li><p>State: <%= place.escape("state") %></p></li>
+  <% } %>
+  <% if (place.escape("zip")) { %>
+    <li><p>ZipCode: <%= place.escape("zip") %></p></li>
+  <% } %>
+  <li><p>Country: <%= place.escape("country") %></p></li>
+</ul>
+<br/>
+<form id="place-pic" enctype="multipart/form-data">
+  <input type="file" name="place_pic[photo]">
+  <input type="submit" id="submit-pic" class="btn btn-primary" value="Upload Photo">
+</form>
+<br/>
+<div id="picture-gallery" class="container2 row"></div>

@@ -32,7 +32,7 @@ gem 'jquery-rails'
 gem 'bcrypt-ruby', :require => 'bcrypt'
 
 # To use Jbuilder templates for JSON
-gem 'jbuilder'
+# gem 'jbuilder'
 
 # Use unicorn as the app server
 # gem 'unicorn'
@@ -59,7 +59,11 @@ gem 'gravtastic'
 
 gem 'kaminari'
 
-gem 'filepicker-rails'
+gem 'paperclip'
+
+gem 'aws-sdk'
+
+gem 'figaro'
 
 
 
