@@ -4,7 +4,9 @@
       <img src='<%= Gravtastic(user.get('email'), {default: 'identicon', size: 100}) %>'>
       <div class="caption\">
         <a class="list-group-item-heading" href='#/users/<%= user.escape("id") %>'><h3><%= user.escape("user_name") %></h3></a>
-        <% if (friends.get(user.get("id"))) { %>
+        <% if (user.get("id") == current_user) { %>
+          <button type="button" class="btn btn-primary">This is me</button>
+        <% } else if (friends.get(user.get("id"))) { %>
           <button type="button" class="btn btn-danger" id="delete-friend">Remove Friend</button>
         <% } else { %>
           <button type="button" class="btn btn-primary" id="add-friend">Add to Friends</button>

@@ -16,7 +16,8 @@ PlanIt.Views.UserShow = Backbone.View.extend ({
     var renderedContent = this.template({
       user: that.model,
       friends: that.collection,
-      users: that.users
+      users: that.users,
+      current_user: PlanIt.current_user.id
     });
     this.$el.html(renderedContent);
     return this;

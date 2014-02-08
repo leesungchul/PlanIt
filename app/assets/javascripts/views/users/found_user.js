@@ -10,7 +10,8 @@ PlanIt.Views.FoundUser = Backbone.View.extend({
   render: function() {
     var renderedContent = this.template({
       user: this.model,
-      friends: PlanIt.friends
+      friends: PlanIt.friends,
+      current_user: PlanIt.current_user.id
     });
     this.$el.html(renderedContent);
     return this;

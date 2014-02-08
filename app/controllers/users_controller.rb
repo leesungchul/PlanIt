@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_filter :require_no_current_user!, :only => [:create, :new]
 
   def index
-    @users = Kaminari.paginate_array(User.all)
+    @users = Kaminari.paginate_array(User.where('id != ?', current_user.id))
       .page(params[:page]).per(12)
     render :json => {
       :models => @users,
