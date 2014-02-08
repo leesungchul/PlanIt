@@ -42,7 +42,3 @@ window.PlanIt = {
     });
   }
 };
-
-$(document).ready(function(){
-  PlanIt.initialize();
-});

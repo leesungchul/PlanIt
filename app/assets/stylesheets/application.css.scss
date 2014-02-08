@@ -9,19 +9,74 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require bootstrap
  *= require fullcalendar
+ *= require lightbox
  *= require_tree .
  */
 
 
 @import "bootstrap";
+/* Main carousel style */
+#myModal {
+  margin-left: 33%;
+  margin-top: 15%;
+}
+
+.carousel {
+    width: 50%;
+}
+
+/* Indicators list style */
+.article-slide .carousel-indicators {
+    bottom: 0;
+    left: 0;
+    margin-left: 5px;
+    width: 100%;
+}
+/* Indicators list style */
+.article-slide .carousel-indicators li {
+    border: medium none;
+    border-radius: 0;
+    float: left;
+    height: 54px;
+    margin-bottom: 5px;
+    margin-left: 0;
+    margin-right: 5px !important;
+    margin-top: 0;
+    width: 100px;
+}
+/* Indicators images style */
+.article-slide .carousel-indicators img {
+    border: 2px solid #FFFFFF;
+    float: left;
+    height: 54px;
+    left: 0;
+    width: 100px;
+}
+/* Indicators active image style */
+.article-slide .carousel-indicators .active img {
+    border: 2px solid #428BCA;
+    opacity: 0.7;
+}
+
 html, body {
   padding-top: 30px;
   height: 96%;
 }
 
+#side-img {
+  height: 80%;
+  width: 30%;
+}
+
 .nav-tabs {
   width: 145%;
+}
+
+#pic-thumb {
+  width: 100%;
+  height: 100%;
 }
 
 #country {

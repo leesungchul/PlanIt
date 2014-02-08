@@ -1,8 +1,16 @@
 <div class="side-place-box" data-cid='<%= place.escape("id") %>'>
   <div class="row">
-    <div class="col-sm-8">
-
-      <a class="list-group-item-heading" href='#/favorite_places/<%= place.escape("id") %>'><h3><%= place.escape("place_name") %></h3></a>
-    </div>
+    <a class="list-group-item-heading" href='#/favorite_places/<%= place.escape("id") %>'>
+      <div class="thumbnail col-sm-3" id="side-img">
+        <% if (place_pics.length > 0) { %>
+          <img src="<%= place_pics[0].escape('smallurl') %>">
+        <% } else { %>
+          <img src="http://icons.iconarchive.com/icons/dakirby309/windows-8-metro/256/Folders-OS-Default-Metro-icon.png">
+        <% } %>
+      </div>
+      <div class="col-sm-4">
+        <h3><%= place.escape("place_name") %></h3>
+      </div>
+    </a>
   </div>
 </div>

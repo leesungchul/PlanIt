@@ -44,4 +44,7 @@ PlanIt::Application.configure do
           :s3_host_name => 's3-us-west-1.amazonaws.com' # or whatever your region host name is
     }
   }
+
+  config.serve_static_assets = true
+  config.assets.compile = true
 end

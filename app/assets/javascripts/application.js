@@ -11,6 +11,7 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
+//= require jquery-1.10.2.min
 //= require jquery_ujs
 //= require jquery.serializeJSON
 //= require underscore
@@ -20,6 +21,7 @@
 //= require fullcalendar
 //= require jquery.simplemodal.1.4.4.min
 //= require gravtastic
+//= require lightbox-2.6.min
 //
 //= require plan_it
 //

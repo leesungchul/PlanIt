@@ -1,8 +1,9 @@
 PlanIt::Application.routes.draw do
+  resource :session, :only => [:create, :destroy, :new]
   get 'users/current', to: 'users#current_user_show'
   get 'users/find_user', to: 'users#find_user'
   resources :users, :only => [:index, :create, :new, :show]
-  resource :session, :only => [:create, :destroy, :new]
+
 
   namespace :api, :defaults => { :format => :json } do
     resources :event_pics, :only => [:create, :destroy, :index]
