@@ -5,6 +5,5 @@ class CreatePlacePics < ActiveRecord::Migration
       t.attachment :photo
       t.timestamps
     end
-    add_index :place_pics, [:place_id, :photo], :unique => true
   end
 end
