@@ -8,7 +8,7 @@ PlanIt::Application.routes.draw do
   namespace :api, :defaults => { :format => :json } do
     resources :event_pics, :only => [:create, :destroy, :index]
     resources :place_pics, :only => [:create, :destroy, :index]
-    resources :events, :only => [:create, :update, :destroy, :show]
+    resources :events, :only => [:create, :update, :destroy, :show, :index]
     resources :event_circles, :only => [:create, :destroy]
     resources :event_places, :only => [:create, :destroy]
     resources :event_times, :only => [:create, :destroy]
@@ -16,9 +16,6 @@ PlanIt::Application.routes.draw do
     resources :friendships, :only => [:create, :destroy]
     resources :places, :only => [:create, :destroy, :show]
     resources :time_suggestions, :only => [:create, :destroy]
-    get 'events/past_events/', to: 'events#past_events'
-    get 'events/current_events', to: 'events#current_events'
-
   end
   root :to => "root#root"
 end

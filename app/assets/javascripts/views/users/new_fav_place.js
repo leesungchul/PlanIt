@@ -15,7 +15,7 @@ PlanIt.Views.NewFavPlace = Backbone.View.extend ({
     var that = this;
     event.preventDefault();
     var data = $(event.currentTarget).serializeJSON();
-    PlanIt.favorites.create(data, {
+    PlanIt.favorites.create(data.place, {
       success: function(response){
         $.ajax({
           type: "post",

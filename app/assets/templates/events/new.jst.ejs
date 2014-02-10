@@ -1,0 +1,28 @@
+<form id="new-event">
+  <h2><label for="event_title">Event Title</label></h2>
+  <input type='text' name="title" placeholder="Enter a title" id="event_title">
+  <h2>Voting Deadline</h2>
+  <p>Choose a date/time or suggestions/voting will be automatically locked</p>
+  <div class="row">
+    <div class="col-md-4">
+      <label for="datepickers">Select Date</label>
+      <div class="bfh-datepicker" id="datepick">
+        <input id="datepickers" type="text" name="datepick" class="datepicker">
+      </div>
+    </div>
+    <div class="col-md-4">
+      <label for="timepickers">Select Time</label>
+      <div class="bfh-timepicker" id="timepick">
+        <input id="timepickers" type="text" name="timepick" class="timepicker">
+      </div>
+    </div>
+  </div>
+  <br/>
+  <input type="submit" class="btn btn-primary" value="submit" id="submit-test">
+</form>
+
+
+<script>
+  $('#datepick').bfhdatepicker({default:'now'});
+  $('#timepick').bfhtimepicker({default:'now', mode: '12h'});
+</script>

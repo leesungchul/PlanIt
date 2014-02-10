@@ -32,7 +32,6 @@ class User < ActiveRecord::Base
 
   has_many :favorites, :through => :favorite_places, :source => :place
 
-
   def self.find_by_credentials(user_name, password)
     user = User.find_by_user_name(user_name)
 

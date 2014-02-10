@@ -12,15 +12,35 @@
  *= require bootstrap
  *= require fullcalendar
  *= require lightbox
+ *= require bootstrap-formhelpers.min
+ *= require TimeCircles
  *= require_tree .
  */
 
 
 @import "bootstrap";
 /* Main carousel style */
+
+.circle {
+  height: 100%;
+  width: 100%;
+}
+
+.deadline-circles {
+  height: 100%;
+  width: 100%;
+}
+
 #myModal {
   margin-left: 33%;
   margin-top: 15%;
+}
+
+.count {
+  background-color: white;
+  font-color: black;
+  height: 20px;
+  width: 20px;
 }
 
 .carousel {

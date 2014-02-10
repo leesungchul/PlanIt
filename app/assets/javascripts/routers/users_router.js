@@ -66,7 +66,8 @@ PlanIt.Routers.Users = Backbone.Router.extend({
   userShow: function(id) {
     var that = this;
     this._getUser(id, function(user) {
-      var userShowView = new PlanIt.Views.UserShow({ model: user,
+      var userShowView = new PlanIt.Views.UserShow({
+        model: user,
         collection: PlanIt.friends,
         users: PlanIt.users
       });

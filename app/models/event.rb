@@ -8,17 +8,15 @@ class Event < ActiveRecord::Base
 
   has_many :places, :through => :event_places, :source => :place
 
-  has_many :event_times, :dependent => :destroy
+  has_many :time_suggestions, :dependent => :destroy
 
-  has_many :time_suggestions, :through => :event_times, :source => :time_suggestion
+  has_many :date_suggestions, :dependent => :destroy
 
   has_many :event_circles, :dependent => :destroy
 
   has_many :members, :through => :event_circles, :source => :user
 
-  has_many :event_pics
+  has_many :event_pics, :dependent => :destroy
 
-  has_many :event_pic_urls, :through => :event_pics, :source => :filepicker_url
-
-  accepts_nested_attributes_for :event_places, :event_times, :event_circles
+  accepts_nested_attributes_for :event_places, :time_suggestions, :date_suggestions, :event_circles
 end

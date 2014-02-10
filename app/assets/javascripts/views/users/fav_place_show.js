@@ -12,9 +12,7 @@ PlanIt.Views.FavPlaceShow = Backbone.View.extend ({
       place: this.model
     });
     this.$el.html(content);
-    console.log(PlanIt.place_pics)
     PlanIt.place_pics.where({place_id: this.model.id}).forEach(function(pic){
-      console.log(pic)
       var view = new PlanIt.Views.SidePic({
         model: pic,
         place: that.model
@@ -30,7 +28,6 @@ PlanIt.Views.FavPlaceShow = Backbone.View.extend ({
     var that = this;
     var file = event.currentTarget.files[0];
     var reader = new FileReader();
-    console.log("here")
     reader.onload = function(e) {
       that.place_pic.set({ photo: e.target.result, place_id: that.model.id });
     }
@@ -45,8 +42,6 @@ PlanIt.Views.FavPlaceShow = Backbone.View.extend ({
     var that = this;
     event.preventDefault();
     var data = $('#place-pic').serializeJSON();
-    console.log(that.place_pic)
-    console.log(data)
     PlanIt.place_pics.create(that.place_pic, {
       success: function() {
         that.render();

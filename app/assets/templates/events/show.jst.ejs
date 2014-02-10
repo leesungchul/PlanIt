@@ -1,0 +1,10 @@
+<div id="countdown"></div>
+<div class="row">
+  <div class="col-md-4">
+    <h1><%= event.escape('title') %></h1>
+    <h3>Created By: <a href="#/users/<%= event.get('creator_id')%>"><%= users.get(event.get('creator_id')).get('user_name') %></a></h3>
+  </div>
+  <div class="col-md-6">
+
+  </div>
+</div>

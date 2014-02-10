@@ -24,6 +24,7 @@ window.PlanIt = {
         PlanIt.current_user = new PlanIt.Models.CurrentUser();
         PlanIt.current_user.fetch({
           success: function() {
+            PlanIt.users.add(PlanIt.current_user)
             PlanIt.place_pics = new PlanIt.Collections.PlacePics();
             PlanIt.place_pics.fetch({
               success: function() {
@@ -31,6 +32,7 @@ window.PlanIt = {
                 PlanIt.event_pics.fetch({
                   success: function() {
                     new PlanIt.Routers.Users({ $sidebar: $('#sidebar'), $main: $('#main') });
+                    new PlanIt.Routers.Events({ $sidebar: $('#sidebar'), $main: $('#main') });
                     Backbone.history.start();
                   }
                 });

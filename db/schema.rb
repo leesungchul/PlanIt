@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140206053224) do
+ActiveRecord::Schema.define(:version => 20140209043912) do
+
+  create_table "date_suggestions", :force => true do |t|
+    t.integer  "event_id"
+    t.date     "date_suggestion"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
 
   create_table "event_circles", :force => true do |t|
     t.integer  "user_id",    :null => false
@@ -42,19 +49,12 @@ ActiveRecord::Schema.define(:version => 20140206053224) do
 
   add_index "event_places", ["event_id", "place_id"], :name => "index_event_places_on_event_id_and_place_id", :unique => true
 
-  create_table "event_times", :force => true do |t|
-    t.integer  "event_id",                          :null => false
-    t.integer  "time_suggestion_id",                :null => false
-    t.integer  "time_likes_count",   :default => 0
-    t.datetime "created_at",                        :null => false
-    t.datetime "updated_at",                        :null => false
-  end
-
   create_table "events", :force => true do |t|
     t.string   "title",                                      :null => false
     t.integer  "creator_id",                                 :null => false
     t.string   "final_place",   :default => "To be decided"
-    t.string   "final_time",    :default => "To be decided"
+    t.datetime "start_time"
+    t.datetime "end_time"
     t.boolean  "current_event", :default => true
     t.datetime "deadline"
     t.datetime "created_at",                                 :null => false
@@ -103,7 +103,8 @@ ActiveRecord::Schema.define(:version => 20140206053224) do
   end
 
   create_table "time_suggestions", :force => true do |t|
-    t.string   "time_suggestion"
+    t.integer  "event_id"
+    t.time     "time_suggestion"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end

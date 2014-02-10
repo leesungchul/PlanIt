@@ -36,7 +36,7 @@ class UsersController < ApplicationController
   def current_user_show
     @current_user = current_user
     render :json => @current_user.as_json(:include =>
-      [:all_friends, :favorites])
+      [:all_friends, :favorites, :events])
   end
 
   def find_user

@@ -15,11 +15,6 @@ class Api::PlacePicsController < ApplicationController
     @place_pics = []
     @current_user.favorites.each do |place|
       place.place_pics.each do |pic|
-        pic["bigurl"] = pic.photo.url(:big)
-        pic["smallurl"] = pic.photo.url(:small)
-        puts "************************"
-        puts pic.photo.url(:small)
-        puts pic.photo.url(:big)
         @place_pics << pic
       end
     end
