@@ -11,9 +11,6 @@ class Api::FavoritePlacesController < ApplicationController
   end
 
   def destroy
-    puts "**********************"
-    puts params[:user_id]
-    puts params[:place_id]
     @favorite_place = FavoritePlace.find_by_user_id_and_place_id(params[:user_id], params[:place_id])
     @favorite_place.destroy
     render :json => {}
