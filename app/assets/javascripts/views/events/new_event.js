@@ -27,10 +27,14 @@ PlanIt.Views.NewEvent = Backbone.View.extend ({
       });
       that.$('#invites').append(view.render().$el);
     });
+    var i = 0;
     PlanIt.favorites.each(function(place){
+      var name = place.get('place_name');
       that.$('#places').append(
-        '<option value=' + place.get('place_name') + '>'
+        '<option data-id=' + i + '>'
       );
+      that.$('option[data-id='+i+']').val(name)
+      i+=1;
     });
     this.$('.dropbox').droppable({
       accept: '.side-friend-box',
