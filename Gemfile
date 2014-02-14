@@ -49,10 +49,6 @@ gem 'ejs'
 
 gem 'jquery-ui-rails'
 
-gem 'rabl'
-
-gem 'oj'
-
 gem 'fullcalendar-rails'
 
 gem 'gravtastic'
@@ -67,7 +63,6 @@ gem 'figaro'
 
 gem 'mail_form'
 
-gem 'font-awesome-sass'
 
 
 
