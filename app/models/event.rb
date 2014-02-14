@@ -1,5 +1,4 @@
 class Event < ActiveRecord::Base
-  require 'Date'
 
   attr_accessible :title, :creator_id, :deadline, :final_place, :start_time,
     :end_time, :current_event
