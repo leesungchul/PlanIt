@@ -20,6 +20,7 @@ PlanIt.Views.Countdown = Backbone.View.extend({
         deadline: dl
       });
       this.$el.html(content);
+      this.$el.prepend('<h4>Voting/Suggestion ends in:</h4>');
       this.$('.deadline-circles').TimeCircles({
         start: true,
         count_past_zero: false,
@@ -47,6 +48,7 @@ PlanIt.Views.Countdown = Backbone.View.extend({
         deadline: st
       });
       that.$el.html(content);
+      that.$el.prepend('<h4>Event starts in:</h4>')
       that.$('.deadline-circles').TimeCircles({
         start: true,
         count_past_zero: false,
