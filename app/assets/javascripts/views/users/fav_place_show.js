@@ -3,7 +3,9 @@ PlanIt.Views.FavPlaceShow = Backbone.View.extend ({
 
   events: {
     'submit #place-pic': 'addPlacePic',
-    'change input[type=file]': 'encodeFile'
+    'change input[type=file]': 'encodeFile',
+    'click #add-place': 'addPlace',
+    'click #remove-place': 'removePlace'
   },
 
   render: function() {
@@ -19,7 +21,11 @@ PlanIt.Views.FavPlaceShow = Backbone.View.extend ({
       });
       that.$('#picture-gallery').append(view.render().$el);
     });
-
+    if (PlanIt.favorites.contains(this.model) == false){
+      this.$('.add-remove').html("<button type='button' class='btn btn-primary' id='add-place'>Add to Favorites</button>");
+    } else {
+      this.$('.add-remove').html("<button type='button' class='btn btn-primary' id='remove-place'>Remove from Favorites</button>");
+    }
     return this;
   },
 
@@ -48,6 +54,21 @@ PlanIt.Views.FavPlaceShow = Backbone.View.extend ({
       },
       error: function() {
         console.log("fail")
+      }
+    });
+  },
+
+  addPlace: function(event){
+    event.preventDefault();
+    var id = this.model.id;
+    var sendURL = "/api/favorite_places/";
+    var that = this;
+    $.ajax ({
+      type: 'post',
+      data: {favorite_place: { user_id: PlanIt.current_user.id, place_id: id }},
+      url: sendURL,
+      success: function(response) {
+        PlanIt.favorites.add(PlanIt.places.get(id));
       }
     });
   }

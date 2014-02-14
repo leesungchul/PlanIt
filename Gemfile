@@ -65,6 +65,10 @@ gem 'aws-sdk'
 
 gem 'figaro'
 
+gem 'mail_form'
+
+gem 'font-awesome-sass'
+
 
 
 

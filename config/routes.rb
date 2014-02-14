@@ -18,5 +18,7 @@ PlanIt::Application.routes.draw do
 
     resources :event_times, :only => [:create, :destroy, :update]
   end
+
+  post 'contact_email', to: 'static_pages#contact_email'
   root :to => "root#root"
 end

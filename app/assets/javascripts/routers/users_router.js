@@ -14,12 +14,30 @@ PlanIt.Routers.Users = Backbone.Router.extend({
     "users/:id": "userShow",
     "friends/index": "friendsIndex",
     "calendar": "calendar",
-    "places/:id": "placeShow"
+    "places/:id": "placeShow",
+    "contact": "contact",
+    "about": "about",
+    "help": "help"
+  },
+
+  contact: function() {
+    var contactView = new PlanIt.Views.ContactPage();
+    this._swapMainView(contactView);
+  },
+
+  about: function() {
+    var aboutView = new PlanIt.Views.AboutPage();
+    this._swapMainView(aboutView);
+  },
+
+  help: function() {
+    var helpView = new PlanIt.Views.HelpView();
+    this._swapMainView(helpView);
   },
 
   root: function() {
     this.friendsIndex();
-    this.calendar();
+    this.about();
   },
 
   favPlacesIndex: function() {
@@ -81,7 +99,8 @@ PlanIt.Routers.Users = Backbone.Router.extend({
     var that = this;
     this._getPlace(id, function(place) {
       var placeView = new PlanIt.Views.FavPlaceShow({
-        model: place
+        model: place,
+        collection: PlanIt.favorites
       });
       that._swapMainView(placeView);
     });

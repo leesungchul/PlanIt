@@ -25,6 +25,12 @@
   width: 100%;
 }
 
+.jumbotron {
+  float: top;
+  height: 30%;
+  opacity: 0.8;
+}
+
 .fullmain {
   height: 100%;
   width: 100%;
@@ -439,6 +445,11 @@ body {
     position:absolute;
     width:0;
     height:0;
+}
+
+.contact-page {
+	background-image:url('/assets/gravity.jpg');
+	background-size:cover;
 }
 
 

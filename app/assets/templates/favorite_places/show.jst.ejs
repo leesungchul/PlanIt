@@ -1,6 +1,8 @@
 
 
 <h1><%= place.escape("place_name") %></h1>
+<div class="add-remove"></div>
+<br/>
 <ul>
   <% if (place.escape("url")) { %>
     <li><p>URL: <a href="http://www.<%= place.escape("url") %>">link</a></p></li>
