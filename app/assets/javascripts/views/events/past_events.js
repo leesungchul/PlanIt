@@ -1,6 +1,8 @@
 PlanIt.Views.PastEvents = Backbone.View.extend ({
   template: JST['events/past'],
 
+  className: 'events-page',
+
   render: function() {
     var that = this;
     var content = this.template();

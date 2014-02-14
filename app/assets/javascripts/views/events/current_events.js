@@ -1,6 +1,8 @@
 PlanIt.Views.CurrentEvents = Backbone.View.extend({
   template: JST['events/current'],
 
+  className: 'events-page',
+
   initialize: function(){
     this.listenTo(this.collection, 'add remove change:current_event', this.render)
   },
