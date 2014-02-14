@@ -19,7 +19,7 @@
 
 
 @import "bootstrap";
-/* Main carousel style */
+
 #main {
   height: 100%;
   width: 100%;
@@ -126,14 +126,14 @@
     width: 50%;
 }
 
-/* Indicators list style */
+
 .article-slide .carousel-indicators {
     bottom: 0;
     left: 0;
     margin-left: 5px;
     width: 100%;
 }
-/* Indicators list style */
+
 .article-slide .carousel-indicators li {
     border: medium none;
     border-radius: 0;
@@ -145,7 +145,7 @@
     margin-top: 0;
     width: 100px;
 }
-/* Indicators images style */
+
 .article-slide .carousel-indicators img {
     border: 2px solid #FFFFFF;
     float: left;
@@ -153,7 +153,7 @@
     left: 0;
     width: 100px;
 }
-/* Indicators active image style */
+
 .article-slide .carousel-indicators .active img {
     border: 2px solid #428BCA;
     opacity: 0.7;
@@ -279,8 +279,7 @@ body {
   width: 46%;
   float: left;
   border: 1px solid #d4d4d4;
-  /*border-radius: 2px;*/
-  /*padding: 20px;*/
+
   position: relative;
   -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
@@ -319,14 +318,9 @@ body {
   top: 16px;
   left: 50%;
   margin-left: -12px;
-  /*background-color: #999999;*/
+
   z-index: 100;
-  /*
-  border-top-right-radius: 50%;
-  border-top-left-radius: 50%;
-  border-bottom-right-radius: 50%;
-  border-bottom-left-radius: 50%;
-  */
+
 }
 .timeline > li.timeline-inverted > .timeline-panel {
   float: right;
@@ -381,11 +375,7 @@ body {
     filter:alpha(opacity=0);
 
 }
-.tooltip.in{
-    /*opacity:0;
-    filter:alpha(opacity=80);*/
 
-}
 .tooltip.top{
     margin-top:-2px;
 }
