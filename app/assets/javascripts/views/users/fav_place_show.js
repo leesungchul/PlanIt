@@ -1,6 +1,10 @@
 PlanIt.Views.FavPlaceShow = Backbone.View.extend ({
   template: JST['favorite_places/show'],
 
+  initialize: function() {
+    this.listenTo(this.collection, 'add remove', this.render)
+  },
+
   events: {
     'submit #place-pic': 'addPlacePic',
     'change input[type=file]': 'encodeFile',
@@ -69,6 +73,21 @@ PlanIt.Views.FavPlaceShow = Backbone.View.extend ({
       url: sendURL,
       success: function(response) {
         PlanIt.favorites.add(PlanIt.places.get(id));
+      }
+    });
+  },
+
+  removePlace: function(event){
+    event.preventDefault();
+    var id = this.model.id;
+    var sendURL = "/api/favorite_places/0";
+    var that = this;
+    $.ajax ({
+      type: 'delete',
+      data: {user_id: PlanIt.current_user.id, place_id: id },
+      url: sendURL,
+      success: function(response) {
+        that.collection.remove(that.model.id)
       }
     });
   }
