@@ -9,7 +9,9 @@ PlanIt.Models.Place = Backbone.Model.extend({
       state: response.state,
       country: response.country,
       zip: response.zip,
-      id: response.id
+      id: response.id,
+      map: response.map,
+      place_pics: new PlanIt.Collections.PlacePics(response.place_pics)
     }
   }
 });

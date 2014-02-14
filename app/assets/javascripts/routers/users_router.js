@@ -2,17 +2,19 @@ PlanIt.Routers.Users = Backbone.Router.extend({
   initialize: function(options) {
     this.$sidebar = options.$sidebar;
     this.$main = options.$main;
+    PlanIt.places.add(PlanIt.favorites.toJSON(), {silent: true});
   },
 
   routes: {
     "": "root",
-    "favorite_places": "favPlacesIndex",
     "favorite_places/new": "addFavPlace",
     "favorite_places/:id": "favPlaceShow",
+    "favorite_places": "favPlacesIndex",
     "users/index": "usersIndex",
     "users/:id": "userShow",
     "friends/index": "friendsIndex",
-    "calendar": "calendar"
+    "calendar": "calendar",
+    "places/:id": "placeShow"
   },
 
   root: function() {
@@ -75,6 +77,16 @@ PlanIt.Routers.Users = Backbone.Router.extend({
     });
   },
 
+  placeShow: function(id) {
+    var that = this;
+    this._getPlace(id, function(place) {
+      var placeView = new PlanIt.Views.FavPlaceShow({
+        model: place
+      });
+      that._swapMainView(placeView);
+    });
+  },
+
   _getUser: function(id, callback) {
     var that = this;
     var user = PlanIt.users.get(id);
@@ -89,6 +101,23 @@ PlanIt.Routers.Users = Backbone.Router.extend({
       });
     } else {
       callback(user);
+    }
+  },
+
+  _getPlace: function(id, callback) {
+    var that = this;
+    var place = PlanIt.places.get(id);
+    if (!place) {
+      place = new PlanIt.Models.Place({ id: id });
+      place.collection = PlanIt.places;
+      place.fetch({
+        success: function() {
+          PlanIt.places.add(place);
+          callback(place);
+        }
+      });
+    } else {
+      callback(place);
     }
   },
 

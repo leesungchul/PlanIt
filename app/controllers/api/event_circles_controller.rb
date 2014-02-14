@@ -1,6 +1,8 @@
 class Api::EventCirclesController < ApplicationController
   def create
-    @event_circle = EventCircle.new(params[:event_circle])
+    @user_id = params[:user_id]
+    @event_id = params[:event_id]
+    @event_circle = EventCircle.new({:event_id => @event_id, :user_id => @user_id})
     if @event_circle.save
       render :json => @event_circle
     else

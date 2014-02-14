@@ -15,13 +15,15 @@ PlanIt.Views.NewFavPlace = Backbone.View.extend ({
     var that = this;
     event.preventDefault();
     var data = $(event.currentTarget).serializeJSON();
-    PlanIt.favorites.create(data.place, {
+    this.collection.create(data.place, {
+      parse: true,
       success: function(response){
         $.ajax({
           type: "post",
           url: "/api/favorite_places",
           data: { favorite_place: { place_id: response.id }},
         });
+        PlanIt.places.add(response, {silent: true});
         Backbone.history.navigate("#/favorite_places/" + response.id, { trigger: true });
       }
     });

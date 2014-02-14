@@ -1,0 +1,7 @@
+<div id="place-info">
+<p>Location Name: <a href="#/places/<%= place.escape('id') %>"><%= place.escape('place_name')%></a><p>
+<p># of Votes: <%= ep.escape('place_likes')%></p>
+</div>
+<div type="button" id="vote-place" class="btn btn-xs btn-primary" data-id="<%= ep.get('id') %>">Vote</div>
+
+

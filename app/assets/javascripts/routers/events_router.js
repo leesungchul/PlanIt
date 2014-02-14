@@ -6,9 +6,10 @@ PlanIt.Routers.Events = Backbone.Router.extend({
 
   routes: {
     'events/new': 'newEvent',
+    'events/:id': 'eventShow',
     'past_events': 'pastEvents',
-    'events': "currentEvents",
-    'events/:id': 'eventShow'
+    'events': "currentEvents"
+
   },
 
   newEvent: function() {
@@ -20,14 +21,14 @@ PlanIt.Routers.Events = Backbone.Router.extend({
 
   pastEvents: function() {
     var pastEventsView = new PlanIt.Views.PastEvents({
-      collection: PlanIt.events.where({current_event: false})
+      collection: PlanIt.events
     });
     this._swapMainView(pastEventsView);
   },
 
   currentEvents: function() {
     var currentEventsView = new PlanIt.Views.CurrentEvents({
-      collection: PlanIt.events.where({current_event: true})
+      collection: PlanIt.events
     });
     this._swapMainView(currentEventsView);
   },
@@ -36,8 +37,7 @@ PlanIt.Routers.Events = Backbone.Router.extend({
     var that = this;
     this._getEvent(id, function(event) {
       var eventShowView = new PlanIt.Views.EventShow({
-        model: event,
-        collection: PlanIt.events
+        model: event
       });
       that._swapMainView(eventShowView);
     });

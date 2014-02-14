@@ -12,7 +12,7 @@ PlanIt.Views.FavPlaceShow = Backbone.View.extend ({
       place: this.model
     });
     this.$el.html(content);
-    PlanIt.place_pics.where({place_id: this.model.id}).forEach(function(pic){
+    this.model.get('place_pics').each(function(pic){
       var view = new PlanIt.Views.SidePic({
         model: pic,
         place: that.model
@@ -42,10 +42,9 @@ PlanIt.Views.FavPlaceShow = Backbone.View.extend ({
     var that = this;
     event.preventDefault();
     var data = $('#place-pic').serializeJSON();
-    PlanIt.place_pics.create(that.place_pic, {
+    this.model.get('place_pics').create(that.place_pic, {
       success: function() {
         that.render();
-        Backbone.history.navigate("#/favorite_places", {trigger: true });
       },
       error: function() {
         console.log("fail")

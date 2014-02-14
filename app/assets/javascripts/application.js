@@ -21,8 +21,8 @@
 //= require jquery.simplemodal.1.4.4.min
 //= require gravtastic
 //= require lightbox-2.6.min
-//= require jquery.countdown.min
 //= require TimeCircles
+//= require backbone.courier.min
 //
 //= require plan_it
 //

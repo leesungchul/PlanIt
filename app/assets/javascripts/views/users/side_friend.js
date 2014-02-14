@@ -1,8 +1,4 @@
 PlanIt.Views.SideFriend = Backbone.View.extend({
-  tagName: 'li',
-
-  className: 'list-group-item',
-
   template: JST['users/side_friend'],
 
   render: function() {
@@ -13,7 +9,8 @@ PlanIt.Views.SideFriend = Backbone.View.extend({
     this.$('.side-friend-box')
       .draggable({
         revert: true,
-        helper: "clone"
+        helper: "clone",
+        cursorAt: {left: 20, top: 20},
       });
     return this;
   }

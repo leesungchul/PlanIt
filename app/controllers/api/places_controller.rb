@@ -14,8 +14,16 @@ class Api::PlacesController < ApplicationController
     render :json => {}
   end
 
-  def show
-    @place = Place.find(params[:id])
-    render :json => @place
+  def index
+    @places = []
+    current_user.events.each do |event|
+      event.event_places.each do |ep|
+        @place = Place.all.select{|place| ep.place_id == place.id}
+        @places.concat(@place)
+      end
+    end
+    @places
   end
 end
+
+

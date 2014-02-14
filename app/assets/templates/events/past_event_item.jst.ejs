@@ -1,0 +1,19 @@
+<div class="timeline-badge primary"><a><i class="glyphicon glyphicon-record" rel="tooltip" title="<%= event.escape('start_time') %>" id=""></i></a></div>
+<div class="timeline-panel">
+  <div class="timeline-heading">
+    <% if (event.get("event_pics").length > 0) { %>
+      <img class="img-responsive" src="<%= event_pics.get('bigurl') %>" />
+    <% } else { %>
+      <img src="http://icons.iconarchive.com/icons/dakirby309/windows-8-metro/256/Folders-OS-Default-Metro-icon.png">
+    <% } %>
+  </div>
+  <div class="timeline-body">
+    <h4><%= event.escape('title')%></h4>
+    <h4>Location:<%= event.escape('final_place')%></h4>
+    <h4>Start:<%= event.escape('start_time')%></h4>
+    <h4>End:<%= event.escape('end_time')%></h4>
+  </div>
+  <div class="timeline-footer">
+      <a href="#/events/<%= event.escape('id') %>" class="pull-right">View</a>
+  </div>
+</div>

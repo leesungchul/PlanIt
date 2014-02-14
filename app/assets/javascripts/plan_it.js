@@ -25,11 +25,12 @@ window.PlanIt = {
         PlanIt.current_user.fetch({
           success: function() {
             PlanIt.users.add(PlanIt.current_user)
-            PlanIt.place_pics = new PlanIt.Collections.PlacePics();
-            PlanIt.place_pics.fetch({
-              success: function() {
-                PlanIt.event_pics = new PlanIt.Collections.EventPics();
-                PlanIt.event_pics.fetch({
+            PlanIt.places = new PlanIt.Collections.Places();
+            PlanIt.places.fetch({
+              success: function(response) {
+                PlanIt.events = new PlanIt.Collections.Events();
+                PlanIt.events.fetch({
+                  parse: true,
                   success: function() {
                     new PlanIt.Routers.Users({ $sidebar: $('#sidebar'), $main: $('#main') });
                     new PlanIt.Routers.Events({ $sidebar: $('#sidebar'), $main: $('#main') });

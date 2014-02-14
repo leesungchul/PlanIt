@@ -9,6 +9,7 @@ class CreatePlaces < ActiveRecord::Migration
       t.string :country
       t.string :phone
       t.string :url
+      t.string :map
 
       t.timestamps
     end

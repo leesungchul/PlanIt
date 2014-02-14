@@ -6,16 +6,12 @@ PlanIt.Views.SidePlace = Backbone.View.extend({
   template: JST['favorite_places/side_place'],
 
   render: function() {
+    var that = this;
     var renderedContent = this.template({
-      place: this.model,
-      place_pics: PlanIt.place_pics.where({place_id: this.model.id})
+      place: that.model,
+      place_pics: that.model.get('place_pics')
     });
     this.$el.html(renderedContent);
-    this.$('.side-place-box')
-      .draggable({
-        revert: true,
-        helper: "clone"
-      });
     return this;
   }
 });

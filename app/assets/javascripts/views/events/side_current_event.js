@@ -1,4 +1,12 @@
 PlanIt.Views.SideCurrentEvent = Backbone.View.extend({
+  initialize: function() {
+    Backbone.Courier.add(this);
+  },
+
+  onMessages: {
+    'timeup': 'render'
+  },
+
   tagName: 'li',
 
   template: JST['events/side_current_event'],
@@ -11,6 +19,7 @@ PlanIt.Views.SideCurrentEvent = Backbone.View.extend({
     var countdown = new PlanIt.Views.Countdown({
       model: this.model
     });
+    Backbone.Courier.add(countdown);
     this.$('#countdown').html(countdown.render().$el);
     return this;
   }

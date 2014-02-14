@@ -1,0 +1,6 @@
+<div data-cid='<%= friend.escape("id") %>' id="invite-friend">
+  <%= friend.escape("user_name") %>
+  <% if (before_dl) { %>
+    <div type="button" class="close remove-invite" aria-hidden="true" data-id="<%= friend.escape('id')%>">&times;</div>
+  <% } %>
+</div>

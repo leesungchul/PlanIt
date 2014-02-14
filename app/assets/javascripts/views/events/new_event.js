@@ -1,42 +1,73 @@
 PlanIt.Views.NewEvent = Backbone.View.extend ({
+  tagName: 'form',
+
+  id: 'new-event',
+
+  className: 'fullmain',
+
   template: JST['events/new'],
 
+  initialize: function() {
+    this.members = new PlanIt.Collections.Users();
+    this.listenTo(this.members, 'add remove', this.render);
+  },
+
   events: {
-    'click #datepick': 'pickDate',
-    'click #timepick': 'pickTime',
-    'submit': 'createEvent'
+    'submit': 'createEvent',
+    'click .remove-invite': 'removeInvite'
   },
 
   render: function() {
     var that = this;
     var content = this.template();
     this.$el.html(content);
+    this.members.each(function(member) {
+      var view = new PlanIt.Views.InviteFriend({
+        model: member
+      });
+      that.$('#invites').append(view.render().$el);
+    });
+    PlanIt.favorites.each(function(place){
+      that.$('#places').append(
+        '<option value=' + place.get('place_name') + '>'
+      );
+    });
+    this.$('.dropbox').droppable({
+      accept: '.side-friend-box',
+      drop: function(event, ui) {
+        var friendId = ui.draggable.data('cid');
+        var friend = PlanIt.friends.get(friendId);
+        if (!that.members.get(friend)) {
+          that.members.add(friend);
+        }
+      }
+    });
     return this;
   },
 
-  pickDate: function() {
-    this.$('#datepick').bfhdatepicker('toggle')
-  },
-
-  pickTime: function(event) {
-    this.$('#timepick').bfhtimepicker('toggle')
+  removeInvite: function(event) {
+    var friendId = $(event.currentTarget).data('id');
+    this.members.remove(friendId);
   },
 
   createEvent: function(event) {
     var that = this;
     event.preventDefault();
-    var title = this.$('#new-event')[0][0].value;
-    var deadline_time = this.$('#new-event')[0][2].value;
-    var deadline_date = this.$('#new-event')[0][1].value;
-    var data = { deadline_date: deadline_date, deadline_time: deadline_time, event: { title: title } };
+    var eventData = $(event.currentTarget).serializeJSON();
+    var membersString = this.members.toJSON();
+    eventData.event_circles = membersString;
     $.ajax({
       type: "post",
       url: "/api/events",
-      data: data,
+      data: eventData,
       success: function(response){
-        that.collection.add(response);
-        Backbone.history.navigate("#events/" + response.id, { trigger: true });
+        that.collection.add(response, {parse:true});
+        that.goToShow(response.id);
       }
     });
+  },
+
+  goToShow: function(id) {
+    Backbone.history.navigate("#/events/" + id, { trigger: true });
   }
 });

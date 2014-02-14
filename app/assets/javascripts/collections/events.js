@@ -6,10 +6,11 @@ PlanIt.Collections.Events = Backbone.Collection.extend({
 
   comparator: function(event) {
     if (event.get('current_event') == true) {
-      return event.get("deadline")
+      var temp = new Date(event.get('deadline'));
+      return -temp.getTime();
     } else {
-      return event.get("start_time")
+      var temp = new Date(event.get('start_time'));
+      return -temp.getTime();
     }
   }
-
 });

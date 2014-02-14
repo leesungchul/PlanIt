@@ -6,9 +6,10 @@ PlanIt.Views.SidePic = Backbone.View.extend({
   template: JST['places/side_pic'],
 
   render: function() {
+    var that = this;
     var renderedContent = this.template({
-      pic: this.model,
-      place: this.place
+      pic: that.model,
+      place: that.place
     });
     this.$el.html(renderedContent);
     return this;

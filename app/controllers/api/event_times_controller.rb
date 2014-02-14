@@ -13,4 +13,10 @@ class Api::EventTimesController < ApplicationController
     @event_time.destroy
     render :json => {}
   end
+
+  def update
+    @event_time = EventTime.find(params[:id])
+    @event_time.time_likes +=1
+    render :json => @event_time
+  end
 end

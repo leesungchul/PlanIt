@@ -1,0 +1,24 @@
+<div class="row">
+  <ul class="col-md-2 list-group" id="invites">
+    <h4>Invited Users</h4>
+  </ul>
+  <div class="col-md-10">
+    <h3>Event starts in:</h3>
+    <div id="countdown"></div>
+      <h1><%= event.escape('title') %></h1>
+      <h3>Created By: <a href="#/users/<%= event.get('creator_id')%>"><%= users.get(event.get('creator_id')).get('user_name') %></a></h3>
+      <h3>Final Location: <a href="#/places/<%= final_place.escape('id') %>"><%= final_place.escape("place_name")%></a></h3>
+      <h3>Event Start Date/Time: <%= fst %></h3>
+      <h3>Event End Date/Time: <%= fet %></h3>
+      <br/>
+      <form id="event-pic" enctype="multipart/form-data">
+        <input type="file" name="event_pic[photo]">
+        <input type="submit" id="submit-pic" class="btn btn-primary" value="Upload Photo"
+          multiple accept="image/*">
+      </form>
+      <br/>
+      <div id="picture-gallery" class="container2 row"></div>
+    </div>
+  </div>
+
+</div>

@@ -1,5 +1,6 @@
 class Api::EventPlacesController < ApplicationController
   def create
+    params[:event_place][:place_id] = Place.find_by_place_name(params[:place_name]).id
     @event_place = EventPlace.new(params[:event_place])
     if @event_place.save
       render :json => @event_place
@@ -13,4 +14,12 @@ class Api::EventPlacesController < ApplicationController
     @event_place.destroy
     render :json => {}
   end
+
+  def update
+    @event_place = EventPlace.find(params[:id])
+    @event_place.place_likes += 1
+    @event_place.save
+    render :json => @event_place
+  end
+
 end

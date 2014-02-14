@@ -11,14 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140209043912) do
-
-  create_table "date_suggestions", :force => true do |t|
-    t.integer  "event_id"
-    t.date     "date_suggestion"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
-  end
+ActiveRecord::Schema.define(:version => 20140206053224) do
 
   create_table "event_circles", :force => true do |t|
     t.integer  "user_id",    :null => false
@@ -40,11 +33,11 @@ ActiveRecord::Schema.define(:version => 20140209043912) do
   end
 
   create_table "event_places", :force => true do |t|
-    t.integer  "event_id",                         :null => false
-    t.integer  "place_id",                         :null => false
-    t.integer  "place_likes_count", :default => 0
-    t.datetime "created_at",                       :null => false
-    t.datetime "updated_at",                       :null => false
+    t.integer  "event_id",                   :null => false
+    t.integer  "place_id",                   :null => false
+    t.integer  "place_likes", :default => 1
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
   end
 
   add_index "event_places", ["event_id", "place_id"], :name => "index_event_places_on_event_id_and_place_id", :unique => true
@@ -98,15 +91,18 @@ ActiveRecord::Schema.define(:version => 20140209043912) do
     t.string   "country"
     t.string   "phone"
     t.string   "url"
+    t.string   "map"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
   create_table "time_suggestions", :force => true do |t|
     t.integer  "event_id"
-    t.time     "time_suggestion"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.integer  "time_likes", :default => 1
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
   end
 
   create_table "users", :force => true do |t|
