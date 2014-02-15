@@ -4,7 +4,7 @@
 <br/>
 E-Mail: <%= user.escape("email") %>
 <br/>
-<% if (user.get('id') == current_user.get('id')) { %>
+<% if (user.get('id') == current_user) { %>
   <button type="button" class="btn btn-success">This is me</button>
 <% } else if (friends.get(user.get("id"))) { %>
   <button type="button" class="btn btn-danger" id="delete-friend">Remove Friend</button>

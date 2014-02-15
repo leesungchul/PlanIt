@@ -24,6 +24,8 @@ class Event < ActiveRecord::Base
     @now = DateTime.strptime(@temp1,'%a, %d %b %Y %H:%M:%S').strftime('%s')
     @temp2 = self.end_time.strftime('%a, %d %b %Y %H:%M:%S')
     @et = DateTime.strptime(@temp2, '%a, %d %b %Y %H:%M:%S').strftime('%s')
+    puts @now
+    puts @et
     if @now > @et
      self.current_event = false
     end
