@@ -61,11 +61,11 @@ PlanIt.Views.EventShow = Backbone.View.extend ({
     var final_end_time = this.time_suggestions.first().get('end_time');
     var temp = new Date(final_end_time);
     var fet = new Date(temp.getTime() + (temp.getTimezoneOffset() * 60000));
+    var before_dl = true
     if (datetime + 1000 - dl < 0) {
       var content = this.template({
         event: this.model,
-        users: PlanIt.users,
-        before_dl: true
+        users: PlanIt.users
       });
       this.$el.html(content);
       var i = 0;
@@ -103,7 +103,7 @@ PlanIt.Views.EventShow = Backbone.View.extend ({
         that.$('#when-list').append(view.render().$el)
       });
     } else {
-      var before_dl = false
+      before_dl = false
       var content = this.template1({
         event: this.model,
         users: PlanIt.users,

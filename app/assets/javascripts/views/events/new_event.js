@@ -23,7 +23,8 @@ PlanIt.Views.NewEvent = Backbone.View.extend ({
     this.$el.html(content);
     this.members.each(function(member) {
       var view = new PlanIt.Views.InviteFriend({
-        model: member
+        model: member,
+        before_dl: true
       });
       that.$('#invites').append(view.render().$el);
     });
