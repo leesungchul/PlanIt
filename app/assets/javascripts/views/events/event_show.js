@@ -64,7 +64,7 @@ PlanIt.Views.EventShow = Backbone.View.extend ({
     var before_dl = true
     if (datetime + 1000 - dl < 0) {
       var content = this.template({
-        event: this.model,
+        event: that.model,
         users: PlanIt.users
       });
       this.$el.html(content);
@@ -105,7 +105,7 @@ PlanIt.Views.EventShow = Backbone.View.extend ({
     } else {
       before_dl = false
       var content = this.template1({
-        event: this.model,
+        event: that.model,
         users: PlanIt.users,
         before_dl: before_dl,
         final_place: final_place,

@@ -17,8 +17,8 @@ class Api::EventsController < ApplicationController
     @place = Place.find_by_place_name(params[:event][:final_place])
     @event.event_places.new({:place_id => @place.id})
     if params[:event_circles]
-      params[:event_circles].each do |k, v|
-        @event.event_circles.build({ :user_id => v['id'] })
+      params[:event_circles].each do |k|
+        @event.event_circles.build({ :user_id => k['id'] })
       end
     end
     if @event.save

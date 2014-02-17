@@ -61,12 +61,9 @@ PlanIt.Views.NewEvent = Backbone.View.extend ({
     var eventData = $(event.currentTarget).serializeJSON();
     var membersString = this.members.toJSON();
     eventData.event_circles = membersString;
-    $.ajax({
-      type: "post",
-      url: "/api/events",
-      data: eventData,
+    console.log(eventData)
+    that.collection.create(eventData, {
       success: function(response){
-        that.collection.add(response, {parse:true});
         that.goToShow(response.id);
       }
     });
