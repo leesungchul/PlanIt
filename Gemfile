@@ -20,6 +20,13 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+
+group :test do
+  gem 'rspec-rails', '~> 2.0'
+  gem 'capybara'
+  gem 'selenium-webdriver'
+end
+
 group :development do
   gem 'better_errors'
 end
@@ -62,7 +69,6 @@ gem 'aws-sdk'
 gem 'figaro'
 
 gem 'mail_form'
-
 
 
 

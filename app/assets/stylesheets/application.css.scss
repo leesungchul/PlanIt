@@ -223,6 +223,10 @@ body {
   height: 96%;
 }
 
+.container {
+  width: auto;
+}
+
 .centerCol {
   height: 96%;
 }
@@ -442,8 +446,8 @@ body {
 }
 
 .contact-page {
-	background-image:url('/assets/gravity.jpg');
-	background-size:cover;
+  background-image:url('/assets/gravity.jpg');
+  background-size:cover;
 }
 
 
