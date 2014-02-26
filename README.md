@@ -1,7 +1,2 @@
+ToDo:
 
-# changed bootstrap-formhelpers.min.js
-# when 12h mode for timepicker
-# set min hour value to 1 from 0
-# set max hour value to 12 from 11
-# "12h"===this.options.mode&&(e>12?(e-=12,g=" "+BFHTimePickerModes.pm,h="pm"):(e==0?(e+=12,g=" "+BFHTimePickerModes.am,h="am"):(g=" "+BFHTimePickerModes.am,h="am")))
-# added e==0 ternary to make sure that time.now shows up in 12 hr mode when hr = 12 am.
