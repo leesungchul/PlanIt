@@ -1,5 +1,4 @@
 
-
 # changed bootstrap-formhelpers.min.js
 # when 12h mode for timepicker
 # set min hour value to 1 from 0
