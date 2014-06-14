@@ -1,6 +1,5 @@
 PlanIt.Models.CurrentUser = Backbone.Model.extend ({
   url: '/users/current',
-
   parse: function(response) {
     PlanIt.favorites = new PlanIt.Collections.Places(response.favorites, {parse: true});
     PlanIt.friends = new PlanIt.Collections.Users(response.friends);

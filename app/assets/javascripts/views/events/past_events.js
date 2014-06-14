@@ -30,7 +30,7 @@ PlanIt.Views.PastEvents = Backbone.View.extend ({
           }
       }
     } else {
-      this.$el.html("<h2>No past events. <a href='#/events/new'>Click To Create One Now!</a></h2>")
+      this.$el.html("<h2>No past events. <a href='#/events/new'>Click To Create One Now</a></h2>")
     }
     return this;
   }

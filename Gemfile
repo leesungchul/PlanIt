@@ -70,6 +70,9 @@ gem 'figaro'
 
 gem 'mail_form'
 
+gem 'bootstrap-filestyle-rails'
+
+gem 'seed_dump'
 
 
 

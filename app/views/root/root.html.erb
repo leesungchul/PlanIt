@@ -1,21 +1,21 @@
 <div class="container0">
 <div class="screen row">
-  <h1>Welcome Back </h1>
+  <h1 class="welcome">Welcome Back </h1>
   <div class="col-sm-2 sideCol">
     <ul class="nav nav-tabs">
-      <li><a href="#/friends/index">Friends</a></li>
-      <li><a href="#/favorite_places">Locations</a></li>
+      <li class='friends_list'><a href="#/friends/index">Friends</a></li>
+      <li class='fav_places'><a href="#/favorite_places">Locations</a></li>
     </ul>
     <div id="sidebar" class="scrollable1"></div>
   </div>
   <div class="col-sm-10 centerCol">
     <ul class="nav nav-tabs">
-      <li><a href="#/events/new">Create Event</a></li>
-      <li><a href="#/events">Current Events</a></li>
-      <li><a href="#/past_events">Past Events</a></li>
+      <li class="create_events"><a href="#/events/new">Create Event</a></li>
+      <li class="current_events"><a href="#/events">Current Events</a></li>
+      <li class="past_events"><a href="#/past_events">Past Events</a></li>
       <li><a href="#/calendar">Calendar</a></li>
-      <li><a href="#/users/index">Find Users</a></li>
-      <li><a href="#/favorite_places/new">Add Location</a></li>
+      <li class="add_friends"><a href="#/users/index">Find Users</a></li>
+      <li class="add_places"><a href="#/favorite_places/new">Add Location</a></li>
     </ul>
     <div id="main" class="scrollable2"></div>
   </div>
@@ -25,5 +25,147 @@
 <script>
 $(document).ready(function(){
   PlanIt.initialize();
+  tour = new Shepherd.Tour({
+    defaults: {
+      classes: 'shepherd-theme-arrows',
+      scrollTo: true
+    }
+  });
+
+  tour.addStep('first-step', {
+    text: 'Welcome to PlanIt. Click next to continue with the walkthrough.',
+    attachTo: '.welcome bottom',
+    classes: 'shepherd sheperd-open shepherd-theme-arrows shepherd-transparent-text',
+    buttons: [
+      {
+        text: 'Exit',
+        classes: 'shepherd-button-secondary',
+        action: tour.cancel
+      }, {
+        text: 'Next',
+        action: tour.next,
+        classes: 'shepherd-button-example-primary'
+      }
+    ]
+  });
+  tour.addStep('user-step', {
+    text: 'Click here to search and add users to your friends list.',
+    attachTo: '.add_friends bottom',
+    classes: 'shepherd sheperd-open shepherd-theme-arrows shepherd-transparent-text',
+    buttons: [
+      {
+        text: 'Exit',
+        classes: 'shepherd-button-secondary',
+        action: tour.cancel
+      }, {
+        text: 'Next',
+        action: tour.next,
+        classes: 'shepherd-button-example-primary'
+      }
+    ]
+  });
+
+  tour.addStep('addplaces-step', {
+    text: 'Click here to add your favorite locations',
+    attachTo: '.add_places bottom',
+    classes: 'shepherd sheperd-open shepherd-theme-arrows shepherd-transparent-text',
+    buttons: [
+      {
+        text: 'Exit',
+        classes: 'shepherd-button-secondary',
+        action: tour.cancel
+      }, {
+        text: 'Next',
+        action: tour.next,
+        classes: 'shepherd-button-example-primary'
+      }
+    ]
+  });
+  tour.addStep('faveplaces-step', {
+    text: 'View your favorite places here.',
+    attachTo: '.fav_places bottom',
+    classes: 'shepherd sheperd-open shepherd-theme-arrows shepherd-transparent-text',
+    buttons: [
+      {
+        text: 'Exit',
+        classes: 'shepherd-button-secondary',
+        action: tour.cancel
+      }, {
+        text: 'Next',
+        action: tour.next,
+        classes: 'shepherd-button-example-primary'
+      }
+    ]
+  });
+
+  tour.addStep('friendslist-step', {
+    text: 'View your friends here.',
+    attachTo: '.friends_list bottom',
+    classes: 'shepherd sheperd-open shepherd-theme-arrows shepherd-transparent-text',
+    buttons: [
+      {
+        text: 'Exit',
+        classes: 'shepherd-button-secondary',
+        action: tour.cancel
+      }, {
+        text: 'Next',
+        action: tour.next,
+        classes: 'shepherd-button-example-primary'
+      }
+    ]
+  });
+
+
+  tour.addStep('create-step', {
+    text: 'Create an event, set a voting deadline and suggest locations/times here.',
+    attachTo: '.create_events bottom',
+    classes: 'shepherd sheperd-open shepherd-theme-arrows shepherd-transparent-text',
+    advanceOn: '.create_events click',
+    buttons: [
+      {
+        text: 'Exit',
+        classes: 'shepherd-button-secondary',
+        action: tour.cancel
+      }, {
+        text: 'Next',
+        action: tour.next,
+        classes: 'shepherd-button-example-primary'
+      }
+    ]
+  });
+  tour.addStep('current-step', {
+    text: 'View your current events here.',
+    attachTo: '.current_events bottom',
+    classes: 'shepherd sheperd-open shepherd-theme-arrows shepherd-transparent-text',
+    buttons: [
+      {
+        text: 'Exit',
+        classes: 'shepherd-button-secondary',
+        action: tour.cancel
+      }, {
+        text: 'Next',
+        action: tour.next,
+        classes: 'shepherd-button-example-primary'
+      }
+    ]
+  });
+  tour.addStep('past-step', {
+    text: 'View your past events as well as add/view photos here.',
+    attachTo: '.past_events bottom',
+    classes: 'shepherd sheperd-open shepherd-theme-arrows shepherd-transparent-text',
+    buttons: [
+      {
+        text: 'Exit',
+        classes: 'shepherd-button-secondary',
+        action: tour.cancel
+      }, {
+        text: 'Next',
+        action: tour.next,
+        classes: 'shepherd-button-example-primary'
+      }
+    ]
+  });
+
+  tour.start();
 });
 </script>

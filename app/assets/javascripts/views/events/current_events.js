@@ -17,7 +17,7 @@ PlanIt.Views.CurrentEvents = Backbone.View.extend({
         that.$('#current-events').append(view.render().$el);
       });
     } else {
-      this.$el.html("<h2>No current events. <a href='#/events/new'>Click To Create One Now!</a></h2>")
+      this.$el.html("<h2>No current events. <a href='#/events/new'>Click To Create One Now</a></h2>")
     }
 
     return this;

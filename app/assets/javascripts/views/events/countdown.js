@@ -8,14 +8,11 @@ PlanIt.Views.Countdown = Backbone.View.extend({
     var deadline = this.model.get('deadline');
     var starttime = this.model.get('start_time');
     var endtime = this.model.get('end_time');
-    var temp = new Date(deadline);
-    var dl = new Date(temp.getTime() + (temp.getTimezoneOffset() * 60000));
-    var temp = new Date(starttime);
-    var st = new Date(temp.getTime() + (temp.getTimezoneOffset() * 60000));
-    var temp = new Date(endtime);
-    var et = new Date(temp.getTime() + (temp.getTimezoneOffset() * 60000));
-    var datetime = new Date().getTime();
-    if (datetime + 1000 - dl.getTime() < 0) {
+    var dl = new Date(deadline)
+    var st = new Date(starttime);
+    var et = new Date(endtime);
+    var datetime = new Date();
+    if (datetime.getTime() + 1500 < dl.getTime()) {
       var content = this.template({
         deadline: dl
       });
@@ -43,7 +40,7 @@ PlanIt.Views.Countdown = Backbone.View.extend({
           that.spawn('timeup');
         }
       });
-    } else if (datetime + 1000 - st.getTime() < 0) {
+    } else if (datetime.getTime() + 1500 < st.getTime()) {
       var content = that.template({
         deadline: st
       });
@@ -72,7 +69,7 @@ PlanIt.Views.Countdown = Backbone.View.extend({
     } else {
       that.model.set({current_event: false});
       that.spawn('timeup');
-      that.$el.html("<h1>Started!</h1>")
+      that.$el.html("<h1>Event has started or has completed</h1>")
     }
     return this;
   }

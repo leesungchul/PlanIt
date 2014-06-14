@@ -10,10 +10,13 @@
  *
  *= require_self
  *= require bootstrap
+ *= require jquery.datetimepicker
  *= require fullcalendar
  *= require lightbox
  *= require bootstrap-formhelpers.min
  *= require TimeCircles
+ *= require shepherd-theme-arrows
+ *= require shepherd-theme-arrows-plain-buttons
  *= require_tree .
  */
 

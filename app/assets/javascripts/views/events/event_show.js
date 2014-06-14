@@ -47,22 +47,17 @@ PlanIt.Views.EventShow = Backbone.View.extend ({
     var deadline = this.model.get('deadline');
     var starttime = this.model.get('start_time');
     var endtime = this.model.get('end_time');
-    var temp = new Date(deadline);
-    var dl = new Date(temp.getTime() + (temp.getTimezoneOffset() * 60000));
-    var temp = new Date(starttime);
-    var st = new Date(temp.getTime() + (temp.getTimezoneOffset() * 60000));
-    var temp = new Date(endtime);
-    var et = new Date(temp.getTime() + (temp.getTimezoneOffset() * 60000));
-    var datetime = Date.now();
+    var dl = new Date(deadline);
+    var st = new Date(starttime);
+    var et = new Date(endtime);
+    var datetime = new Date();
     var final_place = PlanIt.places.get(this.event_places.first().get('place_id'));
     var final_start_time = this.time_suggestions.first().get('start_time');
-    var temp = new Date(final_start_time);
-    var fst = new Date(temp.getTime() + (temp.getTimezoneOffset() * 60000));
+    var fst = new Date(final_start_time);
     var final_end_time = this.time_suggestions.first().get('end_time');
-    var temp = new Date(final_end_time);
-    var fet = new Date(temp.getTime() + (temp.getTimezoneOffset() * 60000));
+    var fet = new Date(final_end_time);
     var before_dl = true
-    if (datetime + 1000 - dl < 0) {
+    if (datetime < dl) {
       var content = this.template({
         event: that.model,
         users: PlanIt.users
@@ -102,6 +97,8 @@ PlanIt.Views.EventShow = Backbone.View.extend ({
         });
         that.$('#when-list').append(view.render().$el)
       });
+      this.$('#datetimepicker1').datetimepicker();
+      this.$('#datetimepicker2').datetimepicker();
     } else {
       before_dl = false
       var content = this.template1({
@@ -135,6 +132,7 @@ PlanIt.Views.EventShow = Backbone.View.extend ({
     });
     Backbone.Courier.add(countdown);
     this.$('#countdown').html(countdown.render().$el);
+    this.$(':file').filestyle({input: false, buttonText: "Upload Photo"});
     return this;
   },
 
@@ -180,6 +178,7 @@ PlanIt.Views.EventShow = Backbone.View.extend ({
     var reader = new FileReader();
     reader.onload = function(e) {
       that.event_pic.set({ photo: e.target.result, event_id: that.model.id });
+      that.$("#event-pic").submit();
     }
     reader.onerror = function(resp) {
       console.log("error", resp);

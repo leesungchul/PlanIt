@@ -21,3 +21,24 @@ feature "sign-in user" do
     expect(page).to have_content "Guest"
   end
 end
+
+feature "sign-up user", :js => true do
+  Capybara.default_wait_time = 5
+  Capybara.reset_sessions!
+  before do
+    visit '/'
+    click_on 'Sign Up'
+    within('#sign-up-modal') do
+      fill_in 'username', :with => 'TestUser4'
+      fill_in 'email', :with => 'test4@test.com'
+      fill_in 'password', :with => '111111'
+      click_on 'SUBMIT FORM'
+    end
+  end
+  it 'redirects to welcome page after sign-in with username displayed' do
+    expect(page).to have_content 'Welcome Back'
+    expect(page).to have_content 'TestUser4'
+  end
+
+end
+

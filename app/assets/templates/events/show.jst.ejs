@@ -15,6 +15,7 @@
               <input type='text' list="places" name="place_name" placeholder="Enter a place" id="event_place">
               <input type='hidden' name="event_place[event_id]" value="<%= event.get('id')%>">
               <datalist id="places"></datalist>
+              </br></br>
               <input type="submit" id="add-location-submit" class="btn btn-primary" value="Add Location">
             </form>
             <h4>Suggested Locations</h4>
@@ -22,26 +23,15 @@
           </div>
           <div class="col-md-8">
             <form id="add-when">
-              <h4>Suggest Event Date/Time</h4>
+            <h4><label for="event_time">Add Date/Time Suggestion</label></h4>
               <input type='hidden' name="event_place[event_id]" value="<%= event.get('id')%>">
               <div class="row">
-                <div class="col-md-6">
-                  <label for="start_date">Select Start Date</label>
-                  <div class="bfh-datepicker" id="datepick1" data-name="start_date"></div>
+                <div class="col-md-4">
+                  <input id="datetimepicker1" name="event[start_time]" type="text" data-name="start_date" placeholder="Start Date/Time">
                 </div>
-                <div class="col-md-6">
-                  <label for="end_date">Select End Date</label>
-                  <div class="bfh-datepicker" id="datepick2" data-name="end_date"></div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6">
-                  <label for="start_time">Select Start Time</label>
-                  <div class="bfh-timepicker" id="timepick1" data-name="start_time"></div>
-                </div>
-                <div class="col-md-6">
-                  <label for="end_time">Select End Time</label>
-                  <div class="bfh-timepicker" id="timepick2" data-name="end_time"></div>
+                <div class="col-md-4">
+                  <input id="datetimepicker2" name="event[end_time]" type="text"
+                    data-name="end_date" placeholder="End Date/Time">
                 </div>
               </div>
               <br/>
@@ -56,9 +46,3 @@
   </div>
 </div>
 
-<script>
-  $('#datepick1').bfhdatepicker({default:'now', name: 'start_date'});
-  $('#timepick1').bfhtimepicker({default:'now', mode: '12h', name: 'start_time'});
-  $('#datepick2').bfhdatepicker({default:'now', name: 'end_date]'});
-  $('#timepick2').bfhtimepicker({default:'now', mode: '12h', name: 'end_time'});
-</script>

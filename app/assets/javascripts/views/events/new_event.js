@@ -47,6 +47,9 @@ PlanIt.Views.NewEvent = Backbone.View.extend ({
         }
       }
     });
+    this.$('#datetimepicker').datetimepicker();
+    this.$('#datetimepicker1').datetimepicker();
+    this.$('#datetimepicker2').datetimepicker();
     return this;
   },
 
@@ -61,7 +64,6 @@ PlanIt.Views.NewEvent = Backbone.View.extend ({
     var eventData = $(event.currentTarget).serializeJSON();
     var membersString = this.members.toJSON();
     eventData.event_circles = membersString;
-    console.log(eventData)
     that.collection.create(eventData, {
       success: function(response){
         that.goToShow(response.id);

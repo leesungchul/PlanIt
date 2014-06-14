@@ -1,13 +1,14 @@
 class Api::EventsController < ApplicationController
   def create
-    format = "%m/%d/%Y %I:%M %p"
-    @datetime = params[:deadline_date] + " " + params[:deadline_time]
-    @startdatetime = params[:start_date] + " " + params[:start_time]
-    @enddatetime = params[:end_date] + " " + params[:end_time]
-    params[:event][:deadline] = DateTime.strptime(@datetime, format)
-    params[:event][:start_time] = DateTime.strptime(@startdatetime, format)
-    params[:event][:end_time] = DateTime.strptime(@enddatetime, format)
+    p "****************"
+    p params[:event][:deadline]
     params[:event][:creator_id] = current_user.id
+    params[:event][:deadline],
+    params[:event][:start_time],
+    params[:event][:end_time] =
+    Time.zone.parse(params[:event][:deadline]),
+    Time.zone.parse(params[:event][:start_time]),
+    Time.zone.parse(params[:event][:end_time])
     @event = Event.new(params[:event])
     @event.event_circles.new({:user_id => current_user.id})
     @event.time_suggestions.new({
@@ -38,7 +39,13 @@ class Api::EventsController < ApplicationController
   def index
     @events = current_user.events
     @events.each do |event|
-      event.is_past_event
+      if event.is_past_event == true
+        event.current_event = false
+        event.save!
+      else
+        event.current_event = true
+        event.save!
+      end
     end
     @events
   end

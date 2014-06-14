@@ -17,6 +17,7 @@
 //= require backbone
 //= require jquery.ui.droppable
 //= require jquery.ui.draggable
+//= require jquery.datetimepicker
 //= require fullcalendar
 //= require jquery.simplemodal.1.4.4.min
 //= require gravtastic
@@ -28,6 +29,8 @@
 //
 //= require bootstrap
 //= require bootstrap-formhelpers.min
+//= require bootstrap-filestyle
+//= require shepherd.min
 //= require_tree ../templates
 //= require_tree ./models
 //= require_tree ./collections

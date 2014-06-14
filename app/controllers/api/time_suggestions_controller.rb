@@ -1,10 +1,8 @@
 class Api::TimeSuggestionsController < ApplicationController
   def create
     format = "%m/%d/%Y %I:%M %p"
-    @startdatetime = params[:start_date] + " " + params[:start_time]
-    @enddatetime = params[:end_date] + " " + params[:end_time]
-    @start = DateTime.strptime(@startdatetime, format)
-    @end = DateTime.strptime(@enddatetime, format)
+    @start = Time.zone.parse(params[:event][:start_time])
+    @end = Time.zone.parse(params[:event][:end_time])
     @time_suggestion = TimeSuggestion.new({
       :start_time => @start,
       :end_time => @end

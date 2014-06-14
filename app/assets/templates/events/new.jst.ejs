@@ -20,16 +20,10 @@
       <p>Choose a date/time or suggestions/voting will be automatically locked</p>
       <div class="row">
         <div class="col-md-6">
-          <label for="deadline_date">Select Date</label>
-          <div class="bfh-datepicker" id="datepick" data-name="deadline_date">
-
-          </div>
-        </div>
-        <div class="col-md-6">
-          <label for="deadline_time">Select Time</label>
-          <div class="bfh-timepicker" id="timepick" data-name="deadline_time">
-
-          </div>
+          <label for="deadline_date">Select Deadline Date/Time</label>
+          </br>
+          <input id="datetimepicker" type="text" name="event[deadline]"
+                       data-name="deadline_date">
         </div>
       </div>
       <br/>
@@ -39,33 +33,16 @@
           <p>Choose a start and end date</p>
           <div class="row">
             <div class="col-md-6">
-              <label for="start_date">Select Start Date</label>
-              <div class="bfh-datepicker" id="datepick1" data-name="start_date">
-
-              </div>
+              <label for="start_date">Select Start Date/Time</label>
+              </br>
+              <input id="datetimepicker1" name="event[start_time]" type="text"
+                data-name="start_date">
             </div>
             <div class="col-md-6">
-              <label for="end_date">Select End Date</label>
-              <div class="bfh-datepicker" id="datepick2" data-name="end_date">
-
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <p>Choose a start and end time</p>
-          <div class="row">
-            <div class="col-md-6">
-              <label for="start_time">Select Start Time</label>
-              <div class="bfh-timepicker" id="timepick1" data-name="start_time">
-
-              </div>
-            </div>
-            <div class="col-md-6">
-              <label for="end_time">Select End Time</label>
-              <div class="bfh-timepicker" id="timepick2" data-name="end_time">
-
-              </div>
+              <label for="end_date">Select End Date/Time</label>
+              </br>
+              <input id="datetimepicker2" name="event[end_time]" type="text"
+                data-name="end_date">
             </div>
           </div>
         </div>
@@ -76,11 +53,3 @@
   </div>
 
 
-<script>
-  $('#datepick').bfhdatepicker({default:'now', name: 'deadline_date'});
-  $('#timepick').bfhtimepicker({default:'now', mode: '12h', name: 'deadline_time'});
-  $('#datepick1').bfhdatepicker({default:'now', name: 'start_date'});
-  $('#timepick1').bfhtimepicker({default:'now', mode: '12h', name: 'start_time'});
-  $('#datepick2').bfhdatepicker({default:'now', name: 'end_date'});
-  $('#timepick2').bfhtimepicker({default:'now', mode: '12h', name: 'end_time'});
-</script>

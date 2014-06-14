@@ -17,10 +17,8 @@ PlanIt.Views.WhenList = Backbone.View.extend({
     var that = this;
     var starttime = this.model.get('start_time');
     var endtime = this.model.get('end_time');
-    var temp = new Date(starttime);
-    var thestart = new Date(temp.getTime() + (temp.getTimezoneOffset() * 60000));
-    var temp = new Date(endtime);
-    var theend = new Date(temp.getTime() + (temp.getTimezoneOffset() * 60000));
+    var thestart = new Date(starttime);
+    var theend = new Date(endtime);
     var content = this.template({
       ts: that.model,
       thestart: thestart,

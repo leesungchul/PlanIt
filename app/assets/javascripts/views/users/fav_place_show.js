@@ -30,6 +30,7 @@ PlanIt.Views.FavPlaceShow = Backbone.View.extend ({
     } else {
       this.$('.add-remove').html("<button type='button' class='btn btn-primary' id='remove-place'>Remove from Favorites</button>");
     }
+    this.$(':file').filestyle({input: false, buttonText: "Upload Photo"});
     return this;
   },
 
@@ -40,15 +41,18 @@ PlanIt.Views.FavPlaceShow = Backbone.View.extend ({
     var reader = new FileReader();
     reader.onload = function(e) {
       that.place_pic.set({ photo: e.target.result, place_id: that.model.id });
+      that.$("#place-pic").submit();
     }
     reader.onerror = function(resp) {
       console.log("error", resp);
       console.log(resp.getMessage());
     }
     reader.readAsDataURL(file)
+
   },
 
   addPlacePic: function(event) {
+    console.log("here")
     var that = this;
     event.preventDefault();
     var data = $('#place-pic').serializeJSON();

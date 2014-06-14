@@ -1,7 +1,7 @@
 <div class="side-user-box" data-cid='<%= user.escape("id") %>'>
   <div class="col-sm-4 col-md-3">
     <div class="thumbnail">
-      <img src='<%= Gravtastic(user.get('email'), {default: 'identicon', size: 100}) %>'>
+      <a href='#/users/<%= user.escape("id") %>'> <img src='<%= Gravtastic(user.get('email'), {default: 'identicon', size: 100}) %>'/></a>
       <div class="caption\">
         <a class="list-group-item-heading" href='#/users/<%= user.escape("id") %>'><h3><%= user.escape("user_name") %></h3></a>
         <% if (user.get('id') == current_user.get('id')) { %>
@@ -15,3 +15,4 @@
     </div>
   </div>
 </div>
+
