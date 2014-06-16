@@ -10,7 +10,7 @@
   <% if (place.escape("phone")) { %>
     <li><p>PHONE: <%= place.escape("phone") %></p></li>
   <% } %>
-  <li><p>LOCATION:</p></li>
+  <p>LOCATION:</p>
   <% if (place.escape("address")) { %>
       <li><p>Street: <%= place.escape("address") %></p></li>
   <% } %>
@@ -26,7 +26,7 @@
   <li><p>Country: <%= place.escape("country") %></p></li>
 </ul>
 <br/>
-<form id="place-pic" enctype="multipart/form-data">
+<form id="avatar-pic" enctype="multipart/form-data">
 
   <input type="file" class="filestyle" data-input="false" value="upload photo" name="place_pic[photo]">
 </form>

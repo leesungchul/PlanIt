@@ -142,6 +142,7 @@ PlanIt.Routers.Users = Backbone.Router.extend({
 
   _swapSideView: function(view) {
     this.$sidebar._currentView && this.$sidebar._currentView.remove();
+    this.unbind();
     this.$sidebar._currentView = view;
     this.$sidebar.html(view.render().$el);
   },

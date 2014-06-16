@@ -8,6 +8,7 @@ PlanIt.Models.CurrentUser = Backbone.Model.extend ({
       user_name: response.user_name,
       email: response.email,
       id: response.id,
+      avatar: response.avatar,
       favorites: new PlanIt.Collections.Places(response.favorites),
       friends: new PlanIt.Collections.Users(response.friends)
     }
